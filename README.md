@@ -1,2 +1,3 @@
-# snowglobe
-A digital snowglobe
+# Snowglobe
+
+A digital snowglobe based on the BitLoom platform.
