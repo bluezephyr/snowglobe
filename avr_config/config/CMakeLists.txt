@@ -6,5 +6,5 @@ set(CMAKE_C_STANDARD 99)
 add_library(config
         avr_port_config.c
         port_config.h
-        scheduler_config.h)
-
+        scheduler_config.h
+        ssd1306_config.h)

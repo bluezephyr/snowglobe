@@ -1,7 +1,7 @@
 /*
- * Port configuration for the AVR for the ledblink hack
+ * Port configuration for the AVR for the BitLoom snowglobe.
  *
- * Copyright (c) 2018. BlueZephyr
+ * Copyright (c) 2020-2021. BlueZephyr
  *
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.

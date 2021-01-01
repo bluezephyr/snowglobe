@@ -10,6 +10,7 @@
  *
  */
 
+#include "ssd1306.h"
 #include "hal/i2c.h"
 #include "hal/timer.h"
 #include "core/scheduler.h"
@@ -27,13 +28,17 @@ int main(void)
 
     // Task initializations
     blink_task_init(schedule_add_task(240, 0, blink_task_run));
+    ssd1306_init(schedule_add_task(10, 1, ssd1306_run));
 
     schedule_start();
     blink_task_enable_blink();
+
+    uart_write((uint8_t*)"Welcome to the BitLoom Snowglobe\r", 34);
 
     while(1)
     {
         schedule_run();
     }
+
     return(0);
 }
