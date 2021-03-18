@@ -10,3 +10,6 @@
 [submodule "bitloom-drivers"]
 	path = bitloom-drivers
 	url = ../bitloom-drivers
+[submodule "bluepill-cmsis"]
+	path = bluepill-cmsis
+	url = ../bluepill-cmsis.git

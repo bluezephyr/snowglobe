@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(snowglobe C)
+project(snowglobe C ASM)
 set(CMAKE_C_STANDARD 99)
 
 # BITLOOM_CORE must be set to where the bitloom-core repo is located
@@ -36,7 +36,7 @@ if (NOT CONFIG)
 endif(NOT CONFIG)
 
 # Use the cross-compile version of add_executable defined in the toolchain
-cc_add_executable(snowglobe main/main.c)
+cc_add_executable(snowglobe src/main.c)
 
 # The following directory includes the project specific configurations
 # Hence it needs to be available for all targets.
@@ -51,7 +51,7 @@ add_subdirectory(${BITLOOM_HAL}/src/i2c libs/hal/i2c)
 add_subdirectory(${BITLOOM_CONFIG}/config libs/config)
 add_subdirectory(${BITLOOM_DRIVERS}/src/ssd1306 drivers/ssd1306)
 add_subdirectory(${CUTIL}/src/bytebuffer libs/bytebuffer)
-add_subdirectory(blinktask libs/blinktask)
+add_subdirectory(src/blinktask libs/blinktask)
 
 cc_target_link_libraries(snowglobe blinktask)
 cc_target_link_libraries(snowglobe scheduler)
