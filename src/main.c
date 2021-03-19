@@ -10,13 +10,16 @@
  *
  */
 
+#include "framebuffer.h"
+#include "blinktask.h"
+#include "snow.h"
 #include "ssd1306.h"
+#include "graphics.h"
 #include "hal/i2c.h"
 #include "hal/timer.h"
 #include "core/scheduler.h"
 #include "core/uart.h"
 #include "config/port_config.h"
-#include "blinktask.h"
 
 int main(void)
 {
@@ -25,10 +28,13 @@ int main(void)
     port_init();
     uart_init();
     i2c_init();
+    framebuffer_init();
 
     // Task initializations
     blink_task_init(schedule_add_task(240, 0, blink_task_run));
-    ssd1306_init(schedule_add_task(10, 1, ssd1306_run));
+    snow_init(schedule_add_task(10, 0, snow_run));
+    ssd1306_init(schedule_add_task(1, 1, ssd1306_run));
+    graphics_init(schedule_add_task(10, 0, graphics_run));
 
     schedule_start();
     blink_task_enable_blink();
